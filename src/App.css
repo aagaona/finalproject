@@ -1,38 +1,122 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.active{
+  background-color: #747474;
+}
+
 .App {
   text-align: center;
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 15%;
+  font-size: 1rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navigation-bar{
+  display: flex;
+  border-bottom: 1px solid whitesmoke;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.title{
+  font-size: 2rem;
+  margin: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.navigation-link a{
+  padding: .5rem;
+  margin: 0 .5rem;
+  text-decoration: none;
+  color: white;
+  border-radius: .5rem;
+}
+
+.navigation-link a:not(.active):hover{
+  background-color: #444444;
+}
+
+.hammenu{
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+.hammenu span{
+  height: 0.4rem;
+  width: 100%;
+  background-color: #747474;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 480px) {
+  .hammenu {
+    display: flex;
   }
 }
+
+.deckcards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.individualcards{
+  margin-top: 1rem;
+  width: 20rem;
+  height: 38rem;
+}
+
+.add-field{
+  color: #444444;
+}
+
+.footer {
+  background-color: #282c34;
+  border-top: 1px solid whitesmoke;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.footer p{
+  color: #747474;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+

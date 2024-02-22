@@ -1,17 +1,11 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.active{
+.active {
   background-color: #747474;
-}
-
-.App {
-  text-align: center;
-  height: 100%;
-  width: 100%;
 }
 
 body {
@@ -23,6 +17,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.main-page{
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  flex: 1; 
 }
 
 .App-header {
@@ -32,16 +38,17 @@ body {
   color: white;
 }
 
-.navigation-bar{
+.navigation-bar {
   display: flex;
   border-bottom: 1px solid whitesmoke;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
+  z-index: 100; 
 }
 
-.title{
+.title {
   font-size: 2rem;
   margin: 1rem;
   padding: 1rem;
@@ -50,7 +57,7 @@ body {
   color: white;
 }
 
-.navigation-link a{
+.navigation-link a {
   padding: .5rem;
   margin: 0 .5rem;
   text-decoration: none;
@@ -58,11 +65,11 @@ body {
   border-radius: .5rem;
 }
 
-.navigation-link a:not(.active):hover{
+.navigation-link a:not(.active):hover {
   background-color: #444444;
 }
 
-.hammenu{
+.hammenu {
   display: none;
   position: absolute;
   top: 0.75rem;
@@ -73,7 +80,7 @@ body {
   height: 2rem;
 }
 
-.hammenu span{
+.hammenu span {
   height: 0.4rem;
   width: 100%;
   background-color: #747474;
@@ -86,6 +93,21 @@ body {
   }
 }
 
+.image-poster{
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay{
+  background-color: #141414;
+  opacity: 30%;
+  text-align: left;
+}
+
+.overlay Card{
+  color: white;
+}
+
 .deckcards {
   display: flex;
   flex-direction: row;
@@ -94,29 +116,26 @@ body {
   align-items: stretch;
 }
 
-.individualcards{
+.individualcards {
   margin-top: 1rem;
   width: 20rem;
   height: 38rem;
+  margin-bottom: 1rem;
 }
 
-.add-field{
+.add-field {
   color: #444444;
 }
 
 .footer {
   background-color: #282c34;
   border-top: 1px solid whitesmoke;
-  position: fixed;
   width: 100%;
-  bottom: 0;
   color: white;
   font-size: 1.5rem;
+  margin-top: auto; 
 }
 
 .footer p{
-  color: #747474;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  color: #444444;
 }
-

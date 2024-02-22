@@ -1,14 +1,32 @@
 import React, { useContext } from 'react'
 import { Button, Card, CardBody, ListGroup } from 'react-bootstrap';
 import { AppContext } from '../Store/AppContext';
+import axios from 'axios';
 
 function DeckCard({deck}) {
   
     const {dispatch} = useContext(AppContext)
 
-    const handleDelete = () => {
-        dispatch({type:'deleteDeck', payload:{deck}})
-    }
+    async function handleDelete({deck}) {
+        try {
+            await axios.delete(`https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks/${deck.id}`);
+
+            const getData = async () => {
+                try {
+                  let resp = await axios.get('https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks');
+                  console.log(resp.data);
+                  
+                  dispatch({type: 'retrieveDecks',payload: resp.data})
+          
+                } catch (error) {console.error("Error fetching data:", error);
+                };
+              };
+          
+            getData();
+        } catch (error) {
+            console.log("Error fetching data:", error);
+        }
+    };
     
     const makeSelected = () => {
         dispatch({type:'makeSelectedDeck', payload:{deck}})
@@ -27,7 +45,7 @@ function DeckCard({deck}) {
                 <Button variant='primary'>Victory</Button>
                 <Button variant='danger'>Defeat</Button>
                 <br/>
-                <Button variant='dark' onClick={handleDelete}>Delete</Button>
+                <Button variant='dark' onClick={() => handleDelete({deck})}>Delete</Button>
             </CardBody>
             <ListGroup variant="flush">
                 <ListGroup.Item>Total Games Played: {deck.totalgames}</ListGroup.Item>

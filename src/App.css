@@ -199,9 +199,20 @@ body {
 }
 
 .socialtags {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: left;
   padding: 2rem;
 }
+
+.socialtags h2{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+
 
 .footer {
   background-color: #282c34;

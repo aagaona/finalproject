@@ -9,11 +9,11 @@ function Navbar() {
         <span>
             <Link to='/' className='title'><FontAwesomeIcon icon={faDiceD20}/> Power Play Gamez</Link>
         </span>
-        <div className='hammenu'>
+        {/* <div className='hammenu'>
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </div> */}
         <span className='navigation-link'>
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/about'>About EDH</NavLink>

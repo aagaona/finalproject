@@ -45,7 +45,7 @@ function SearchResults({card, onCardSelect}) {
 
     return (
         <div className='individualSearchCard'>
-            <Card style={{width: '15rem', height: '29rem'}}>
+            <Card bg='secondary' text='light' border='light' style={{width: '15rem', height: '29rem'}}>
                 <Card.Img variant='top' src={card.image_uris.normal} />
                 <CardBody>
                     <Card.Title>

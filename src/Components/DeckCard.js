@@ -96,7 +96,7 @@ function DeckCard({deck}) {
     
     return (
     <div className='individualcards'>
-        <Card style={{width: '20rem', height: '32rem'}}>
+        <Card bg='dark' text='white' border='info' style={{width: '20rem', height: '32rem'}}>
             <Card.Img variant='top' src={deck.image} className='img-box' onClick={makeSelected}/>
             <CardBody>
                 <Card.Title>{deck.commander}</Card.Title>
@@ -108,13 +108,13 @@ function DeckCard({deck}) {
                     <FontAwesomeIcon icon={faSkull} /> Defeat
                 </Button>
                 <br/>
-                <Button variant='dark' onClick={() => handleDelete({deck})}>
+                <Button variant='outline-danger' onClick={() => handleDelete({deck})}>
                     <FontAwesomeIcon icon={faTrash} /> Delete
                 </Button>
             </CardBody>
             <ListGroup variant="flush">
-                <ListGroup.Item>Total Games Played: {deck.totalgames}</ListGroup.Item>
-                <ListGroup.Item>Games Won: {deck.wincount}</ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor: '#282c34', textAlign: 'left', color: 'white'}}>Total Games Played: {deck.totalgames}</ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor: '#282c34', textAlign: 'left', color: 'white'}}>Games Won: {deck.wincount}</ListGroup.Item>
             </ListGroup>
         </Card>
     </div>

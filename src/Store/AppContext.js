@@ -9,6 +9,12 @@ export const intialState = {
     selectedcard: {},
     collection: [],
     randomcard: {},
+    address: {
+        street: '125 Vallecitos De Oro, Unit J',
+        city: 'San Marcos',
+        zip: '92069',
+        state: 'Ca',
+    },
     // w: 'public/images/White.jpg',
     // u: 'public\images\Blue.png',
     // b: 'public\images\Black.jpg',

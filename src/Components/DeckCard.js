@@ -96,7 +96,7 @@ function DeckCard({deck}) {
     
     return (
     <div className='individualcards'>
-        <Card bg='dark' text='white' border='info' style={{width: '20rem', height: '32rem'}}>
+        <Card bg='dark' text='white' border='secondary' style={{width: '20rem', height: '32rem'}}>
             <Card.Img variant='top' src={deck.image} className='img-box' onClick={makeSelected}/>
             <CardBody>
                 <Card.Title>{deck.commander}</Card.Title>

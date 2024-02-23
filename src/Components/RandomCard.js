@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../Store/AppContext';
 import axios from 'axios';
-import { Button, Card, CardBody } from 'react-bootstrap';
+import { Button, Card, CardBody, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAtom, faDroplet, faFire, faGear, faSkull, faSun, faTree } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,8 +33,6 @@ function RandomCard() {
             console.log(resp.data);
             setRandomCard(resp.data);
 
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
-
         } catch(error){console.error("Error fetching data:", error)
 
         };
@@ -45,8 +43,6 @@ function RandomCard() {
             let resp = await axios.get(`${randomURL}?q=c%3Au`);
             console.log(resp.data);
             setRandomCard(resp.data);
-
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
 
         } catch(error){console.error("Error fetching data:", error)
 
@@ -59,8 +55,6 @@ function RandomCard() {
             console.log(resp.data);
             setRandomCard(resp.data);
 
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
-
         } catch(error){console.error("Error fetching data:", error)
 
         };
@@ -71,8 +65,6 @@ function RandomCard() {
             let resp = await axios.get(`${randomURL}?q=c%3Ar`);
             console.log(resp.data);
             setRandomCard(resp.data);
-
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
 
         } catch(error){console.error("Error fetching data:", error)
 
@@ -85,8 +77,6 @@ function RandomCard() {
             console.log(resp.data);
             setRandomCard(resp.data);
 
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
-
         } catch(error){console.error("Error fetching data:", error)
 
         };
@@ -98,8 +88,6 @@ function RandomCard() {
             console.log(resp.data);
             setRandomCard(resp.data);
 
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
-
         } catch(error){console.error("Error fetching data:", error)
 
         };
@@ -107,11 +95,9 @@ function RandomCard() {
 
     async function randomAnything() {
         try {
-            let resp = await axios.get(randomURL);
+            let resp = await axios.get(`${randomURL}?q=is%3Afunny`);
             console.log(resp.data);
             setRandomCard(resp.data);
-
-            // dispatch({type: 'updateRandomCard', payload: resp.data})
 
         } catch(error){console.error("Error fetching data:", error)
 
@@ -153,10 +139,30 @@ function RandomCard() {
             </Button>
             <div className='randomcard-div'>
                 {randomCard.image_uris && randomCard.image_uris.normal && (
-                    <Card className='randomcard' key={randomCard.id} style={{ width: '20rem', height: '34rem', backgroundColor: '#282c34'}}>
+                    <Card className='randomcard' key={randomCard.id} style={{backgroundColor: '#282c34'}}>
                         <Card.Img variant='top' src={randomCard.image_uris.normal} />
                         <CardBody>
                             <Card.Title>{randomCard.name}</Card.Title>
+                            <ListGroup>
+                                <ListGroupItem style={{backgroundColor: '#747474', color: 'white', textAlign: 'left'}}>
+                                    <strong>Legal for Play in: </strong>
+                                </ListGroupItem>
+                                <ListGroupItem style={{backgroundColor: '#141414', color: 'white', textAlign: 'left'}}>
+                                    <strong>Commander:</strong> {randomCard.legalities.commander}
+                                </ListGroupItem>
+                                <ListGroupItem style={{backgroundColor: '#141414', color: 'white', textAlign: 'left'}}>
+                                    <strong>Brawl:</strong> {randomCard.legalities.brawl}
+                                </ListGroupItem>
+                                <ListGroupItem style={{backgroundColor: '#141414', color: 'white', textAlign: 'left'}}>
+                                    <strong>Modern:</strong> {randomCard.legalities.modern}
+                                </ListGroupItem>
+                                <ListGroupItem style={{backgroundColor: '#141414', color: 'white', textAlign: 'left'}}>
+                                    <strong>Oathbreaker:</strong> {randomCard.legalities.oathbreaker}
+                                </ListGroupItem>
+                                <ListGroupItem style={{backgroundColor: '#141414', color: 'white', textAlign: 'left'}}>
+                                    <strong>Standard:</strong> {randomCard.legalities.standard}
+                                </ListGroupItem>
+                            </ListGroup>
                         </CardBody>
                         <Button className='randombtn' variant='outline-warning' onClick={randomAnything}>
                             <FontAwesomeIcon icon={faAtom} /> Give in to Chaos

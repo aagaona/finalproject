@@ -1,9 +1,13 @@
 import { faArrowsToDot, faClock, faLocationDot, faMapLocationDot, faShareNodes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Card, CardBody, CardGroup, CardHeader, CardLink, ListGroup, ListGroupItem, Nav } from 'react-bootstrap'
+import { AppContext } from '../Store/AppContext'
 
 function Socialtags() {
+
+    const {store} = useContext(AppContext)
+
   return (
     <>
         <CardGroup>
@@ -32,7 +36,7 @@ function Socialtags() {
                     <Card.Text>
                         Follow for us on Instgram for info about our podcast, card previews and a fine selection of curated memes!
                     </Card.Text>
-                    <Button variant='outline-light' href='https://www.facebook.com/'>
+                    <Button variant='outline-light' href='https://www.instagram.com/'>
                         <FontAwesomeIcon icon={faShareNodes}/> Follow our Instgram!
                     </Button>
                 </CardBody>
@@ -47,7 +51,7 @@ function Socialtags() {
                     <Card.Text>
                         Follow on Threads for up to date news, reactions and discussion about the MTG!
                     </Card.Text>
-                    <Button variant='outline-light' href='https://www.facebook.com/'>
+                    <Button variant='outline-light' href='https://www.threads.net/login'>
                         <FontAwesomeIcon icon={faShareNodes}/> Latest Updates on Threads!
                     </Button>
                 </CardBody>
@@ -62,7 +66,7 @@ function Socialtags() {
                     <Card.Text>
                         The best place to find the best cards at the best price from the best people! 
                     </Card.Text>
-                    <Button variant='outline-dark' href='https://www.facebook.com/'>
+                    <Button variant='outline-dark' href='https://www.ebay.com/'>
                         <FontAwesomeIcon icon={faShareNodes}/> Purchase Singles and Sealed Products!
                     </Button>
                 </CardBody>
@@ -83,9 +87,9 @@ function Socialtags() {
                     <h4>
                         Store Address:
                     </h4>
-                    125 Vallecitos De Oro J
+                        {store.address.street}
                     <br/>
-                    San Marcos, Ca 92069
+                        {store.address.city}, {store.address.state} {store.address.zip}
                 </Card.Text>
                 <ListGroup style={{backgroundColor: '#141414'}}>
                     <ListGroup.Item style={{backgroundColor: '#747474', color: 'white'}}>

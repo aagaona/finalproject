@@ -64,7 +64,7 @@ function AddCommanderDeck() {
 
   async function handleSearch () {
     try {
-      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${commanderName}+t%3Alegend`);
+      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${commanderName}+is%3Acommander`);
       console.log(response.data);
       const cardData = response.data;
       const cardList = cardData.data; 

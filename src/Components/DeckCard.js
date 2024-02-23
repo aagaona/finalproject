@@ -96,7 +96,7 @@ function DeckCard({deck}) {
     
     return (
     <div className='individualcards'>
-        <Card style={{width: '20rem', height: '38rem'}}>
+        <Card style={{width: '20rem', height: '32rem'}}>
             <Card.Img variant='top' src={deck.image} className='img-box' onClick={makeSelected}/>
             <CardBody>
                 <Card.Title>{deck.commander}</Card.Title>
@@ -115,7 +115,6 @@ function DeckCard({deck}) {
             <ListGroup variant="flush">
                 <ListGroup.Item>Total Games Played: {deck.totalgames}</ListGroup.Item>
                 <ListGroup.Item>Games Won: {deck.wincount}</ListGroup.Item>
-                <ListGroup.Item>This where we display the previous result</ListGroup.Item>
             </ListGroup>
         </Card>
     </div>

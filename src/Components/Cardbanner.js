@@ -8,7 +8,7 @@ function Cardbanner() {
   const {store} = useContext(AppContext)
 
   const displayCards = store.decks.map((deck) => (
-    <Carousel.Item style={{backgroundColor: '#0000'}}>
+    <Carousel.Item key={deck.id} style={{backgroundColor: '#0000'}}>
     <img
       style={{marginLeft:"auto",marginRight:"auto"}}
       className="d-block w-15 image-poster"

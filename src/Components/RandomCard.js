@@ -3,7 +3,7 @@ import { AppContext } from '../Store/AppContext';
 import axios from 'axios';
 import { Button, Card, CardBody } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDroplet, faFire, faGear, faSkull, faSun, faTree } from '@fortawesome/free-solid-svg-icons';
+import { faAtom, faDroplet, faFire, faGear, faSkull, faSun, faTree } from '@fortawesome/free-solid-svg-icons';
 
 function RandomCard() {
 
@@ -105,6 +105,19 @@ function RandomCard() {
         };
     };
 
+    async function randomAnything() {
+        try {
+            let resp = await axios.get(randomURL);
+            console.log(resp.data);
+            setRandomCard(resp.data);
+
+            // dispatch({type: 'updateRandomCard', payload: resp.data})
+
+        } catch(error){console.error("Error fetching data:", error)
+
+        };
+    };
+
 
 
 
@@ -112,11 +125,13 @@ function RandomCard() {
         <div className='randomdiv'>
             <h3>Explore the Multiverse</h3>
             <p>
-                Below you can randomly explore the Multiverse of Magic the Gathering!
+                Welcome to the Multiverse of Magic: the Gathering!
                 <br />
                 Select one of the buttons below to dive deeper into the Color of your choice! 
                 <br />
-                The cards are sorted by Color Identity, so if you're lucky you may come across multi-color cards!
+                The cards are sorted by Color Identity, so if you're lucky you may come across a multi-color cards!
+                <br />
+                For those seeking a more reckless experience, feel free to give into the chaos...
             </p>
             <Button className='randombtn' variant='light' onClick={randomWhite}>
                 <FontAwesomeIcon icon={faSun} /> Explore White
@@ -138,11 +153,14 @@ function RandomCard() {
             </Button>
             <div className='randomcard-div'>
                 {randomCard.image_uris && randomCard.image_uris.normal && (
-                    <Card className='randomcard' style={{ width: '20rem', height: '34rem', backgroundColor: 'black' }}>
+                    <Card className='randomcard' key={randomCard.id} style={{ width: '20rem', height: '34rem', backgroundColor: '#282c34'}}>
                         <Card.Img variant='top' src={randomCard.image_uris.normal} />
                         <CardBody>
                             <Card.Title>{randomCard.name}</Card.Title>
                         </CardBody>
+                        <Button className='randombtn' variant='outline-warning' onClick={randomAnything}>
+                            <FontAwesomeIcon icon={faAtom} /> Give in to Chaos
+                        </Button>
                     </Card>
                 )}
             </div>

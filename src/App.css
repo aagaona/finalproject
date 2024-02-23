@@ -45,7 +45,9 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 100; 
+  left: 0;
+  right: 0;
+  z-index: 1000; 
 }
 
 .title {
@@ -93,19 +95,14 @@ body {
   }
 }
 
-.image-poster{
-  justify-content: center;
-  align-items: center;
+.carousel {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
-.overlay{
-  background-color: #141414;
-  opacity: 30%;
-  text-align: left;
-}
-
-.overlay Card{
-  color: white;
+.welcometext {
+  margin-right: 4rem;
+  margin-left: 4rem;
 }
 
 .deckcards {
@@ -124,24 +121,45 @@ body {
   margin: 0.5rem;
 }
 
+.add-field{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.inputzone{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .individualcards {
   margin-top: 1rem;
-  width: 20rem;
-  height: 38rem;
   margin-bottom: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.individualcards:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .searchresults{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: stretch;
 }
 
 .individualSearchCard{
   margin-bottom: 1rem;
   background-color: #141414;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.individualSearchCard:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .add-field {
@@ -151,9 +169,12 @@ body {
 .randomdiv{
   width: 60%;
   border: 2px solid #747474;
+  background-color: #282c34;
   border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .randombtn{
@@ -168,9 +189,18 @@ body {
   margin: 1rem;
 }
 
-
 .randomcard{
   color: white;
+  border: 0px solid #747474;
+}
+
+.accordion{
+  text-align: left;
+}
+
+.socialtags {
+  text-align: left;
+  padding: 2rem;
 }
 
 .footer {

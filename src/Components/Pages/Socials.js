@@ -1,8 +1,11 @@
 import React from 'react'
+import Socialtags from '../Socialtags'
 
 function Socials() {
   return (
-    <div>Socials</div>
+    <div className='socialtags'>Socials
+      <Socialtags />    
+    </div>
   )
 }
 

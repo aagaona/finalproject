@@ -11,7 +11,7 @@ function Cardbanner() {
     <Carousel.Item style={{backgroundColor: '#0000'}}>
     <img
       style={{marginLeft:"auto",marginRight:"auto"}}
-      className="d-block w-20 image-poster"
+      className="d-block w-15 image-poster"
       src={deck.cardimage}
     />
     <Carousel.Caption>

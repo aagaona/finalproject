@@ -1,4 +1,3 @@
-import axios from "axios";
 
 const appReducer = (state,action) => {
     const newState = {...state}

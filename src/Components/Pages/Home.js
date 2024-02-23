@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../Store/AppContext'
 import Cardbanner from '../Cardbanner'
+import PPGWelcome from '../PPGWelcome'
+import RandomCard from '../RandomCard'
 
 function Home() {
 
@@ -8,12 +10,15 @@ function Home() {
 
   return (
     <div>
-      <h1>Power Play Gamez: Command Zone</h1>
       <div>
         <Cardbanner />
       </div>
+      <br />
       <div>
-        
+        <PPGWelcome />
+      </div>
+      <div>
+        <RandomCard />
       </div>
     </div>
   )

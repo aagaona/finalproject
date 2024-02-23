@@ -12,9 +12,10 @@ function Decktracker() {
 
     return (
     <div>
-        <h1>Deck Tracker</h1>
-
+        <h1>Legends Corner</h1>
         <AddCommanderDeck />
+        <hr />
+        <h3>Existing Decks</h3>
         <div className='deckcards'>
             {displayDecks}
         </div>

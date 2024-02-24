@@ -9,7 +9,7 @@ import { faCrown, faSkull, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function DeckCard({deck}) {
   
-    const {dispatch} = useContext(AppContext)
+    const {dispatch} = useContext(AppContext);
 
     async function handleDelete({deck}) {
         try {

@@ -17,9 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
 }
 
 .main-page{
@@ -28,12 +25,10 @@ body {
 
 .App {
   text-align: center;
-  flex: 1; 
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 15%;
   font-size: 1rem;
   color: white;
 }
@@ -71,7 +66,7 @@ body {
   background-color: #444444;
 }
 
-.hammenu {
+/* .hammenu {
   display: none;
   position: absolute;
   top: 0.75rem;
@@ -93,7 +88,7 @@ body {
   .hammenu {
     display: flex;
   }
-}
+} */
 
 .carousel {
   margin-top: 4rem;
@@ -151,6 +146,19 @@ body {
   align-items: stretch;
 }
 
+.deckdisplay{
+  margin: 4rem;
+}
+
+.reset-deck{
+  margin: 0.5rem;
+}
+
+.commander-portrait{
+  border-radius: 25px;
+  margin-bottom: 2rem;
+}
+
 .individualSearchCard{
   margin-bottom: 1rem;
   background-color: #141414;
@@ -198,6 +206,57 @@ body {
   text-align: left;
 }
 
+.img-container{
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.img-container img {
+  object-fit: scale-down;
+  max-height: 40%;
+  width: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .img-container:hover img {
+  transform: scale(1.1);
+} */
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-item {
+  flex-basis: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.card-image {
+  aspect-ratio: auto;
+  max-width: 12rem;
+  margin-right: 10px;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.remove-card{
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-text{
+  text-align: left;
+}
+
+
 .socialtags {
   display: flex;
   flex-direction: column;
@@ -212,7 +271,20 @@ body {
   margin-bottom: 3rem;
 }
 
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
 
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
 
 .footer {
   background-color: #282c34;

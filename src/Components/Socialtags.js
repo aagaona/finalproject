@@ -81,12 +81,13 @@ function Socialtags() {
             </CardHeader>
             <CardBody>
                 <Card.Text style={{textAlign: 'center'}}>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340.804874046992!2d-117.18334988787109!3d33.1404904734034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc7557598bc745%3A0x5a7c0bf743bc0ea7!2sKnowhere%20Games%20%26%20Comics!5e0!3m2!1sen!2sus!4v1708712353091!5m2!1sen!2sus" width="600" height="450" style={{border: 0, borderRadius: '10px'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div className='google-maps'>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340.804874046992!2d-117.18334988787109!3d33.1404904734034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc7557598bc745%3A0x5a7c0bf743bc0ea7!2sKnowhere%20Games%20%26%20Comics!5e0!3m2!1sen!2sus!4v1708712353091!5m2!1sen!2sus" width="600" height="450" style={{border: 0, borderRadius: '10px'}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </Card.Text>
                 <Card.Text style={{textAlign: 'center'}}>
-                    <h4>
-                        Store Address:
-                    </h4>
+                    <strong>Store Address</strong>
+                    <br/>
                         {store.address.street}
                     <br/>
                         {store.address.city}, {store.address.state} {store.address.zip}
@@ -96,25 +97,25 @@ function Socialtags() {
                         <FontAwesomeIcon icon={faClock}/> Hours
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Monday: 9:00 am - 9:00 pm
+                        <strong>Monday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Tuesday: 9:00 am - 9:00 pm
+                        <strong>Tuesday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Wednesday: 9:00 am - 9:00 pm
+                        <strong>Wednesday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Thursday: 9:00 am - 9:00 pm
+                        <strong>Thursday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Friday: 9:00 am - 9:00 pm
+                        <strong>Friday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Saturday: 9:00 am - 9:00 pm
+                        <strong>Saturday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                     <ListGroup.Item style={{backgroundColor: '#141414', color: 'white'}}>
-                        Sunday: 9:00 am - 9:00 pm
+                        <strong>Sunday:</strong> 9:00 am - 9:00 pm
                     </ListGroup.Item>
                 </ListGroup>
             </CardBody>

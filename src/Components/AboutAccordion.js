@@ -11,9 +11,11 @@ function AboutAccordion() {
   return (
     <Accordion style={{width: '75%', marginLeft: 'auto', marginRight: 'auto'}}>
         <Accordion.Item eventKey='0'>
-            <Accordion.Header style={{backgroundColor: '#747474'}}>
-                <FontAwesomeIcon icon={faBook}/>What even is Commander?
-            </Accordion.Header>
+            <div style={{backgroundColor: 'green'}}>
+                <Accordion.Header style={{backgroundColor: '#747474'}}>
+                    <FontAwesomeIcon icon={faBook}/>What even is Commander?
+                </Accordion.Header>
+            </div>
             <Accordion.Body style={{backgroundColor: '#282c34', color: 'white'}}>
                 Commander is for fun. It’s a socially interactive, multiplayer Magic: the Gathering format full of wild interactions and epic plays, specifically designed as an alternative to tournament Magic. As is fitting for a format in which you choose an avatar to lead your forces into battle, Commander focuses on a resonant experience. Each game is a journey the players share, relying on a social contract in which each player is considerate of the experiences of everyone involved–this promotes player interaction, inter-game variance, a variety of play styles, and a positive communal atmosphere. At the end of an ideal Commander game, someone will have won, but all participants will have had the opportunity to express themselves through their deck building and game play.
                 <br />

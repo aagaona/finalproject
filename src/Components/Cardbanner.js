@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../Store/AppContext'
-import CardPoster from './CardPoster'
 import { Carousel } from 'react-bootstrap'
 
 function Cardbanner() {
@@ -12,7 +11,7 @@ function Cardbanner() {
     <img
       style={{marginLeft:"auto",marginRight:"auto"}}
       className="d-block w-15 image-poster"
-      src={deck.cardimage}
+      src={deck.image}
     />
     <Carousel.Caption>
       <div style={{backgroundColor: "#141414", width: '40%',marginLeft:"auto",marginRight:"auto"}}>

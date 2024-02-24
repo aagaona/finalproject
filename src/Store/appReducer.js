@@ -10,8 +10,12 @@ const appReducer = (state,action) => {
             newState.decks = payload
             break;
         case 'makeSelectedDeck':
-            newState.selecteddeck = payload;
-            console.log(newState.selecteddeck)
+            newState.selectedDeck = payload;
+            console.log(newState.selectedDeck);
+            break;
+        case 'updateSelectedDeck':
+            newState.selectedDeck.deck.library = payload;
+            console.log(newState.selectedDeck);
             break;
     }
 

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { Button, Card, CardBody } from 'react-bootstrap'
 import { AppContext } from '../Store/AppContext';
 
-function SearchResults({card, onCardSelect}) {
+function SearchResultsforDeck({deck, card, onCardSelect}) {
 
     const {dispatch} = useContext(AppContext)
 
@@ -15,13 +15,10 @@ function SearchResults({card, onCardSelect}) {
     async function handleAdd({card}) {
         try{
         
-        await axios.post('https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks', {
-            commander: card.name,
+        await axios.post(`https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks/${deck.id}/cards`, {
+            cardname: card.name,
             typeline: card.type_line,
-            image: card.image_uris.art_crop,
-            totalgames: 0,
-            wincount: 0,
-            lastresult: null,
+            cmc: card.cmc,
             cardimage: card.image_uris.normal,
             coloridentity: card.color_identity,
             cardtext: card.oracle_text,
@@ -29,10 +26,10 @@ function SearchResults({card, onCardSelect}) {
 
           const getData = async () => {
             try {
-                let resp = await axios.get('https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks');
+                let resp = await axios.get(`https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks/${deck.id}/cards`);
                 console.log(resp.data);
 
-                dispatch({type: 'retrieveDecks',payload: resp.data})
+                dispatch({type: 'updateSelectedDeck',payload: resp.data})
 
             } catch(error){console.error("Error fetching data:", error);
             };
@@ -52,11 +49,11 @@ function SearchResults({card, onCardSelect}) {
                     <Card.Title>
                         {card.name}
                     </Card.Title>
-                    <Button variant="dark" onClick={() => handleSelect({card})}>Select Commander</Button>
+                    <Button variant="dark" onClick={() => handleSelect({card})}>Select Card</Button>
                 </CardBody>
             </Card>
         </div>
     )
 }
 
-export default SearchResults
+export default SearchResultsforDeck

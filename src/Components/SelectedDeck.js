@@ -28,7 +28,7 @@ function SelectedDeck({deck}) {
 
   async function handleSearch () {
     try {
-      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${commanderName}`);
+      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${commanderName}+layout%3Anormal+game%3Apaper`);
       console.log(response.data);
       const cardData = response.data;
       const cardList = cardData.data; 
@@ -99,6 +99,7 @@ function SelectedDeck({deck}) {
             {errorMessage}
           </div>
         )}
+        <h6 className='mt-2'>Support for Double Faced Cards Coming Soon</h6>
         <h6 className='mt-2'>Powered by Scryfall API</h6>
       </div>
       <div className='searchresults'>

@@ -1,21 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../Store/AppContext';
 import axios from 'axios';
-import { Button, Card, CardBody, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Button, Card, CardBody, ListGroup, ListGroupItem, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAtom, faDroplet, faFire, faGear, faSkull, faSun, faTree } from '@fortawesome/free-solid-svg-icons';
+import { faAtom, faBolt, faDroplet, faFire, faGear, faSkull, faSun, faTree } from '@fortawesome/free-solid-svg-icons';
 
 function RandomCard() {
 
     const {store,dispatch} = useContext(AppContext);
-    const [randomCard, setRandomCard] = useState({});
+    const [randomCard, setRandomCard] = useState(null);
     const randomURL = `https://api.scryfall.com/cards/random`
 
     useEffect(() => {
         const getRandom = async () => {
             try {
-              let resp = await axios.get(randomURL);
-              console.log(resp.data);
+              let resp = await axios.get(`${randomURL}?q=layout%3Anormal`);
               setRandomCard(resp.data);
               
               dispatch({type: 'updateRandomCard', payload: resp.data})
@@ -29,7 +28,7 @@ function RandomCard() {
 
     async function randomWhite() {
         try {
-            let resp = await axios.get(`${randomURL}?q=c%3Aw`);
+            let resp = await axios.get(`${randomURL}?q=c%3Aw+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -40,7 +39,7 @@ function RandomCard() {
 
     async function randomBlue() {
         try {
-            let resp = await axios.get(`${randomURL}?q=c%3Au`);
+            let resp = await axios.get(`${randomURL}?q=c%3Au+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -51,7 +50,7 @@ function RandomCard() {
 
     async function randomBlack() {
         try {
-            let resp = await axios.get(`${randomURL}?q=c%3Ab`);
+            let resp = await axios.get(`${randomURL}?q=c%3Ab+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -62,7 +61,7 @@ function RandomCard() {
 
     async function randomRed() {
         try {
-            let resp = await axios.get(`${randomURL}?q=c%3Ar`);
+            let resp = await axios.get(`${randomURL}?q=c%3Ar+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -73,7 +72,7 @@ function RandomCard() {
 
     async function randomGreen() {
         try {
-            let resp = await axios.get(`${randomURL}?q=c%3Ag`);
+            let resp = await axios.get(`${randomURL}?q=c%3Ag+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -84,7 +83,7 @@ function RandomCard() {
 
     async function randomColorless() {
         try {
-            let resp = await axios.get(`${randomURL}?q=c%3Ac`);
+            let resp = await axios.get(`${randomURL}?q=c%3Ac+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -95,7 +94,7 @@ function RandomCard() {
 
     async function randomAnything() {
         try {
-            let resp = await axios.get(`${randomURL}?q=is%3Afunny`);
+            let resp = await axios.get(`${randomURL}?q=is%3Afunny+layout%3Anormal`);
             console.log(resp.data);
             setRandomCard(resp.data);
 
@@ -115,28 +114,32 @@ function RandomCard() {
                 <br />
                 Select one of the buttons below to dive deeper into the Color of your choice! 
                 <br />
-                The cards are sorted by Color Identity, so if you're lucky you may come across a multi-color cards!
+                <br/>
+                The cards are sorted by Color <strong>NOT</strong> Color Identity, so if you're lucky you may come across a multicolor cards!
                 <br />
-                For those seeking a more reckless experience, feel free to give into the chaos...
+                <small>For those seeking a more reckless experience, feel free to give into the chaos...</small>
             </p>
             <Button className='randombtn' variant='light' onClick={randomWhite}>
-                <FontAwesomeIcon icon={faSun} /> Explore White
+                <FontAwesomeIcon icon={faSun} /> Explore Plains
             </Button>
             <Button className='randombtn' variant='primary' onClick={randomBlue}>
-                <FontAwesomeIcon icon={faDroplet} /> Explore Blue
+                <FontAwesomeIcon icon={faDroplet} /> Explore Islands
             </Button>
             <Button className='randombtn' variant='dark' onClick={randomBlack}>
-                <FontAwesomeIcon icon={faSkull} /> Explore Black
+                <FontAwesomeIcon icon={faSkull} /> Explore Swamps
             </Button>
             <Button className='randombtn' variant='danger' onClick={randomRed}>
-                <FontAwesomeIcon icon={faFire} /> Explore Red
+                <FontAwesomeIcon icon={faFire} /> Explore Mountains
             </Button>
             <Button className='randombtn' variant='success' onClick={randomGreen}>
-                <FontAwesomeIcon icon={faTree} /> Explore Green
+                <FontAwesomeIcon icon={faTree} /> Explore Forests
             </Button>
             <Button className='randombtn' variant='secondary' onClick={randomColorless}>
                 <FontAwesomeIcon icon={faGear} /> Explore Colorless
             </Button>
+            <br />
+
+            {randomCard ? (
             <div className='randomcard-div'>
                 {randomCard.image_uris && randomCard.image_uris.normal && (
                     <Card className='randomcard' key={randomCard.id} style={{backgroundColor: '#282c34'}}>
@@ -165,11 +168,18 @@ function RandomCard() {
                             </ListGroup>
                         </CardBody>
                         <Button className='randombtn' variant='outline-warning' onClick={randomAnything}>
-                            <FontAwesomeIcon icon={faAtom} /> Give in to Chaos
+                            <FontAwesomeIcon icon={faBolt} /> Give in to Chaos
                         </Button>
                     </Card>
                 )}
-            </div>
+            </div> ) : (
+                <div>
+                    <Spinner animation='border' role='status'>
+                    </Spinner>
+                    <br/>
+                    <span> Checking State...</span>
+                </div>
+            )}
         </div>
     );
 };

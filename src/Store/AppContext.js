@@ -15,4 +15,12 @@ export const intialState = {
         zip: '92069',
         state: 'Ca',
     },
+    randomPlains: {}, 
+    randomIsland: {},
+    randomSwamp: {},
+    randomMountain: {},
+    randomForest: {},
+    randomMuti: {},
+    randomArtifact: {},
+    randomCollection: [],
 };

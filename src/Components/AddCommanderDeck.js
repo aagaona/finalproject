@@ -13,46 +13,6 @@ function AddCommanderDeck() {
 
   const {dispatch} = useContext(AppContext)
 
-  // MOVED TO SEARCHRESULTS AND HANDLED THERE
-  // async function handleAdd() {
-  //   try {
-  //     const response = await axios.get(`https://api.scryfall.com/cards/named?fuzzy=${commanderName}`);
-  //     console.log(response.data);
-  //     const cardData = response.data;
-
-  //     await axios.post('https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks', {
-  //       commander: cardData.name,
-  //       typeline: cardData.type_line,
-  //       image: cardData.image_uris.art_crop,
-  //       totalgames: 0,
-  //       wincount: 0,
-  //       lastresult: null,
-  //       cardimage: cardData.image_uris.normal,
-  //       coloridentity: cardData.color_identity,
-  //     });
-
-  //     setCommanderName('');
-      
-  //     const getData = async () => {
-  //         try {
-  //           let resp = await axios.get('https://65d116a8ab7beba3d5e4149f.mockapi.io/commanderdecks');
-  //           console.log(resp.data);
-            
-  //           dispatch({type: 'retrieveDecks',payload: resp.data})
-    
-  //         } catch (error) {console.error("Error fetching data:", error);
-  //         };
-  //       };
-    
-  //     getData();
-
-  //     setErrorMessage('');
-  //   } catch (error) {
-  //     console.error('Error retrieving card:', error);
-  //     setErrorMessage('Error: You Failed to Find the Card. Refine and Try Again.');
-  //   }
-  // };
-
   function handleInputChange(event) {
     setCommanderName(event.target.value);
   };
@@ -64,7 +24,7 @@ function AddCommanderDeck() {
 
   async function handleSearch () {
     try {
-      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${commanderName}+is%3Acommander`);
+      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${commanderName}+is%3Acommander+layout%3Anormal+game%3Apaper`);
       console.log(response.data);
       const cardData = response.data;
       const cardList = cardData.data; 
@@ -113,6 +73,7 @@ function AddCommanderDeck() {
             {errorMessage}
           </div>
         )}
+        <h6 className='mt-2'>Support for Double Faced Cards Coming Soon</h6>
         <h6 className='mt-2'>Powered by Scryfall API</h6>
       </div>
       <div className='searchresults'>
@@ -123,6 +84,3 @@ function AddCommanderDeck() {
 }
 
 export default AddCommanderDeck
-
-
-// https://api.scryfall.com/cards/search?q=
